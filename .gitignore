@@ -1,0 +1,43 @@
+# Plugin/Package Management
+/plugin/
+
+# Lazy.nvim
+/lua/lazy/*
+!/lua/lazy/lazy-lock.json
+
+# Language Server Protocol
+.lsp/
+.luarc.json
+
+# Compiled Lua Sources
+luac.out
+*.src.rock
+*.zip
+*.tar.gz
+
+# Objects and Binaries
+*.o
+*.os
+*.ko
+*.obj
+*.elf
+
+# Logs and databases
+*.log
+*.sqlite
+
+# Neovim specific
+.netrwhist
+**/spell/*.spl
+.undodir/
+*.swp
+*.swo
+
+# MacOS system files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
