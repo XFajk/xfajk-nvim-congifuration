@@ -9,3 +9,10 @@ vim.cmd("set number")
 vim.keymap.set("n", "<C-s>", ":w<CR>", {}) -- Saves file
 vim.keymap.set("n", "<C-y>", ":redo<CR>", {}) -- redo
 vim.keymap.set("n", "<C-z>", ":undo<CR>", {}) -- und
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = "*.py",
+  callback = function()
+    vim.cmd("LspRestart")
+  end
+})
