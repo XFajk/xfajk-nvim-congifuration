@@ -9,7 +9,17 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "clangd", "pyright", "rust_analyzer", "asm_lsp", "ts_ls", "eslint", "html"},
+				ensure_installed = {
+					"lua_ls",
+					"clangd",
+					"pyright",
+					"rust_analyzer",
+					"asm_lsp",
+					"ts_ls",
+					"eslint",
+					"html",
+          "cmake"
+				},
 			})
 		end,
 	},
@@ -33,15 +43,26 @@ return {
 				capabilities = capabilities,
 			})
 			lspconfig.rust_analyzer.setup({
+				capabilities = capabilities, -- Your existing capabilities
+				settings = {
+					["rust-analyzer"] = {
+						cargo = {
+							features = "all", -- Enable ALL Cargo features for analysis
+						},
+						-- Other rust-analyzer settings...
+					},
+				},
+			})
+			lspconfig.ts_ls.setup({
 				capabilities = capabilities,
 			})
-      lspconfig.ts_ls.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.eslint.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.html.setup({
+			lspconfig.eslint.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.html.setup({
+				capabilities = capabilities,
+			})
+      lspconfig.cmake.setup({
         capabilities = capabilities,
       })
 
